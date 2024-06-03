@@ -9,11 +9,11 @@
   <a href="https://github.com/giangnv125"><img alt="Deployer GiangNV" src="https://img.shields.io/badge/Deployer-GiangNV-FFD500?style=flat&labelColor=005BBB" /></a>
 </p>
 
-## Overview
+### Overview
 - This model based on [this repo](https://github.com/deepinsight/insightface/tree/master/detection/scrfd).
 - SCRFD is an efficient high accuracy face detection approach.
 
-## Model Performances
+### Model Pretrained & Performances
 
 |                     Name                      | mAP_Easy | mAP_Medium | mAP_Hard | FLOPs | Params(M) | Infer(ms) |
 |:---------------------------------------------:|----------|------------|----------|-------|-----------|-----------|
@@ -28,7 +28,7 @@
 mAP, FLOPs and inference latency are all evaluated on VGA resolution.
 ``_KPS`` means the model includes 5 keypoints prediction.
 
-## Installation & Run
+### Installation & Run
 
 - Clone code to local device:
 ```
