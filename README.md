@@ -21,12 +21,11 @@
 |    SCRFD_1G    | 92.38 | 90.57  | 74.80 | 1G    | 0.64      | 4.1       |
 |   SCRFD_2.5G   | 93.78 | 92.16  | 77.87 | 2.5G  | 0.67      | 4.2       |
 |   SCRFD_10G    | 95.16 | 93.87  | 83.05 | 10G   | 3.86      | 4.9       |
-|   SCRFD_34G    | 96.06 | 94.92  | 85.29 | 34G   | 9.80      | 11.7      |
 | SCRFD_500M_KPS | 90.97 | 88.44  | 69.49 | 500M  | 0.57      | 3.6       |
 | SCRFD_2.5G_KPS | 93.80 | 92.02  | 77.13 | 2.5G  | 0.82      | 4.3       |
 | SCRFD_10G_KPS  | 95.40 | 94.01  | 82.80 | 10G   | 4.23      | 5.0       |
 
-## Installation
+## Installation & Run
 
 - Clone code to local device:
 ```
@@ -40,5 +39,5 @@ docker build -t onnx_gpu_env .
 - Run docker conatainer onnx gpu environment and run code on container:
 ```
 docker run --network host -it -v $(pwd):/home -w /home --name onnx_gpu_env_container <<onnx_gpu_env_image_id>> /bin/bash
-python3 main.py --cam_id video/test.py
+python3 main.py --cam_id <<video_path>>
 ```

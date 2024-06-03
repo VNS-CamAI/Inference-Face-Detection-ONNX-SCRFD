@@ -11,7 +11,7 @@ clock = Timer()
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--cam_id', default='', help='Camera ID or image/video file path')
-    parser.add_argument('--model', default='weights/model_1.onnx', help='Model file path')
+    parser.add_argument('--model', default='weights/SCRFD_500M.onnx', help='Model file path')
     parser.add_argument('--output_dir', default='./results', help='Output directory to save results')
     args = parser.parse_args()
 
@@ -41,7 +41,7 @@ def main():
         print(f"Processed image saved to {output_path}")
     else:
         # Open video stream
-        # cam_id = int(args.cam_id) if args.cam_id.isdigit() else args.cam_id
+        cam_id = int(args.cam_id) if args.cam_id.isdigit() else args.cam_id
         stream = cv2.VideoCapture(args.cam_id)
 
         if not stream.isOpened():
@@ -52,7 +52,10 @@ def main():
         height = stream.get(cv2.CAP_PROP_FRAME_HEIGHT)  # height of input frame
         fps = stream.get(cv2.CAP_PROP_FPS)  # fps of video
 
-        output_video_path = os.path.join(args.output_dir, os.path.basename(args.cam_id))
+        if cam_id is not None:
+            output_video_path = os.path.join(args.output_dir, 'video.mp4')
+        else:
+            output_video_path = os.path.join(args.output_dir, os.path.basename(args.cam_id))
         out = cv2.VideoWriter(output_video_path, cv2.VideoWriter_fourcc(*"mp4v"), fps, (int(width), int(height)))
 
         while True:
@@ -94,8 +97,6 @@ def process_frame(frame, detector):
 
         cv2.line(frame, (int(x_min), int(y_max - 15)), (int(x_min), int(y_max)), (255, 0, 255), 3)
         cv2.line(frame, (int(x_min), int(y_max)), (int(x_min + 15), int(y_max)), (255, 0, 255), 3)
-
-        # cv2.putText(frame, label, (x1, y1 - 2), 0, tl / 3, [225, 255, 255], thickness=tf, lineType=cv2.LINE_AA)
 
     # cv2.imshow('Video', frame)
     # cv2.waitKey(0)
