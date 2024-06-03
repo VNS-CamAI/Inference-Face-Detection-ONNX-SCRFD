@@ -25,6 +25,9 @@
 | SCRFD_2.5G_KPS | 93.80 | 92.02  | 77.13 | 2.5G  | 0.82      | 4.3       |
 | SCRFD_10G_KPS  | 95.40 | 94.01  | 82.80 | 10G   | 4.23      | 5.0       |
 
+mAP, FLOPs and inference latency are all evaluated on VGA resolution.
+``_KPS`` means the model includes 5 keypoints prediction.
+
 ## Installation & Run
 
 - Clone code to local device:
