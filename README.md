@@ -32,7 +32,7 @@ mAP, FLOPs and inference latency are all evaluated on VGA resolution.
 
 - Clone code to local device:
 ```
-git clone https://github.com/optimuskonboi/Inference-Face-Detection-ONNX-SCRFD.git
+git clone https://github.com/VMS-CamAI/Inference-Face-Detection-ONNX-SCRFD.git
 ```
 - Build docker image onnx gpu environment:
 ```
@@ -41,6 +41,6 @@ docker build -t onnx_gpu_env .
 ```
 - Run docker conatainer onnx gpu environment and run code on container:
 ```
-docker run --network host -it -v $(pwd):/home -w /home --name onnx_gpu_env_container <<onnx_gpu_env_image_id>> /bin/bash
+docker run --network host -it -v $(pwd):/home -w /home --name onnx_gpu_env_container onnx_gpu_env:latest /bin/bash
 python3 main.py --cam_id <<video_path>>
 ```
