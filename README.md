@@ -32,7 +32,7 @@ mAP, FLOPs and inference latency are all evaluated on VGA resolution.
 
 - Clone code to local device:
 ```
-git clone https://github.com/VMS-CamAI/Inference-Face-Detection-ONNX-SCRFD.git
+git clone https://github.com/VNS-CamAI/Inference-Face-Detection-ONNX-SCRFD.git
 ```
 - Build docker image onnx gpu environment:
 ```
